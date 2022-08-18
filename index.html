@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CRUD Operations</title>
-    <!-- Google Font -->
+
+    <!-- G O O G L E    F O N T -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,110 +14,110 @@
       rel="stylesheet"
     />
 
-    <!-- Bootstrap File -->
+    <!-- B O O T S T R A P    F I L E -->
     <link rel="stylesheet" href="css/bootstrap.min.css" />
 
-    <!-- Main CSS File -->
+    <!-- C U S T O M    C S S    F I L E -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <h1 class="text-center mt-5 text-muted">CRUDS OPERATIONS</h1>
     <div class="container">
-      <div class="row">
-        <!-- ==================== Input Product Area ==================== -->
-        <div class="my-5 p-4 shadow rounded-3">
-          <form id="form">
-            <label class="form-label" for="product-name">Product Name</label>
-            <input
-              class="form-control mb-4"
-              type="text"
-              name="product-name"
-              id="product-name"
-              required
-            />
+      <!-- I N P U T    P R O D U C T S -->
+      <div class="my-5 p-4 shadow rounded-3">
+        <form id="form">
+          <label class="form-label" for="product-name">Product Name</label>
+          <input
+            class="form-control mb-4"
+            type="text"
+            name="product-name"
+            id="product-name"
+            required
+          />
 
-            <label class="form-label" for="product-price">Product Price</label>
-            <input
-              class="form-control mb-4"
-              type="number"
-              name="product-price"
-              id="product-price"
-              required
-            />
+          <label class="form-label" for="product-price">Product Price</label>
+          <input
+            class="form-control mb-4"
+            type="number"
+            name="product-price"
+            id="product-price"
+            required
+          />
 
-            <label class="form-label" for="product-category"
-              >Product Category</label
-            >
-            <input
-              class="form-control mb-4"
-              type="text"
-              name="product-category"
-              id="product-category"
-              required
-            />
+          <label class="form-label" for="product-category"
+            >Product Category</label
+          >
+          <input
+            class="form-control mb-4"
+            type="text"
+            name="product-category"
+            id="product-category"
+            required
+          />
 
-            <label class="form-label" for="product-description"
-              >Product Description</label
-            >
-            <textarea
+          <label class="form-label" for="product-description"
+            >Product Description</label
+          >
+          <textarea
+            class="form-control"
+            name="product-description"
+            id="product-description"
+            cols="30"
+            rows="5"
+          ></textarea>
+          <div
+            class="d-flex justify-content-center align-items-center my-5 gap-4"
+          >
+            <button class="btn btn-outline-success" id="add-product">
+              Add Product
+            </button>
+            <button class="btn btn-outline-danger" type="button" id="clear">
+              Clear
+            </button>
+          </div>
+        </form>
+
+        <!--  S E A R C H  -->
+        <div>
+          <div class="input-group mb-3">
+            <input
+              id="search"
               class="form-control"
-              name="product-description"
-              id="product-description"
-              cols="30"
-              rows="5"
-            ></textarea>
-            <div
-              class="d-flex justify-content-center align-items-center my-5 gap-4"
-            >
-              <button class="btn btn-outline-success" id="add-product">
-                Add Product
-              </button>
-              <button class="btn btn-outline-danger" type="button" id="clear">
-                Clear
-              </button>
-            </div>
-          </form>
-
-          <!-- ==================== Search Area ==================== -->
-          <div>
-            <div class="input-group mb-3">
-              <input
-                id="search"
-                class="form-control"
-                type="search"
-                placeholder="Product Search..."
-                aria-label="Product Search..."
-                aria-describedby="basic-addon1"
-              />
-              <button class="input-group-text" id="basic-addon1" type="submit">
-                <lord-icon
-                  src="https://cdn.lordicon.com/osbjlbsb.json"
-                  trigger="hover"
-                  style="width: 30px; height: 30px"
-                >
-                </lord-icon>
-              </button>
-            </div>
-            <div
-              class="d-flex flex-column flex-md-row gap-3 gap-md-0 justify-content-around mt-5"
-            >
-              <button
-                class="btn btn-info"
-                id="search-by-name"
-                onclick="getSearchMode(this.id)"
+              type="search"
+              placeholder="Product Search..."
+              aria-label="Product Search..."
+              aria-describedby="basic-addon1"
+            />
+            <button class="input-group-text" id="basic-addon1" type="submit">
+              <lord-icon
+                src="https://cdn.lordicon.com/osbjlbsb.json"
+                trigger="hover"
+                style="width: 30px; height: 30px"
               >
-                Search By Name
-              </button>
-              <button
-                class="btn btn-info"
-                id="search-by-Category"
-                onclick="getSearchMode(this.id)"
-              >
-                Search By Category
-              </button>
-            </div>
+              </lord-icon>
+            </button>
+          </div>
+          <div
+            class="d-flex flex-column flex-md-row gap-3 gap-md-0 justify-content-around mt-5"
+          >
+            <button
+              class="btn btn-info"
+              id="search-by-name"
+              onclick="getSearchMode(this.id)"
+            >
+              Search By Name
+            </button>
+            <button
+              class="btn btn-info"
+              id="search-by-Category"
+              onclick="getSearchMode(this.id)"
+            >
+              Search By Category
+            </button>
           </div>
         </div>
+
+        <!--  D I S P L A Y    P R O D U C T S  -->
         <table class="table text-center align-middle mb-5">
           <thead>
             <tr class="table-warning">
@@ -131,13 +132,12 @@
           <tbody id="tbody"></tbody>
         </table>
       </div>
-      <!-- ==================== Display Data Area ==================== -->
     </div>
 
-    <!-- LordIcon -->
+    <!-- L O R D I C O N -->
     <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
 
-    <!-- Main JS File -->
+    <!-- C U S T O M    J S    F I L E -->
     <script src="js/main.js"></script>
   </body>
 </html>
